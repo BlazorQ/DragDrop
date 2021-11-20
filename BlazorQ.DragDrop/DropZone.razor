@@ -1,0 +1,40 @@
+@typeparam TItem
+@inject DragDropService DragDropService
+@implements IDisposable
+@using Microsoft.AspNetCore.Components.Web
+
+<div class="@GetClassesForDropZone()"
+     @ondragover="()=>OnDragOver(default)" @ondragover:preventDefault @ondragover:stopPropagation
+     @ondragenter="()=>OnDragEnter(default)" @ondragenter:preventDefault @ondragenter:stopPropagation
+     @ondragleave="()=>OnDragLeave(default)"
+     @ondrop="()=>OnDrop()" @ondrop:preventDefault @ondrop:stopPropagation
+     ondragstart="event.dataTransfer.setData('text', event.target.id);" @ondragstart:stopPropagation
+     @ondragend:stopPropagation>
+
+    @foreach (var item in Items)
+    {
+        <div @ondrop="()=>OnDropItemOnSpacing(Items.IndexOf(item))" @ondrop:stopPropagation
+             @ondragenter="()=>ActiveSpacerIndex = Items.IndexOf(item)" @ondragenter:stopPropagation
+             @ondragleave="()=>ActiveSpacerIndex = null"
+             class="@GetClassesForSpacing(Items.IndexOf(item))"></div>
+
+        <div draggable="@IsItemDragable(item)"
+             @ondragstart="(e)=>OnDragStart(e, item)"
+             @ondragend="()=>OnDragEnd(item)"
+             @ondragenter="()=>OnDragEnter(item)" @ondragenter:stopPropagation
+             @ondragleave="()=>OnDragLeave(item)"
+             @onclick="()=>OnClick(item)"
+             class="@GetClassesForDraggable(item)"
+             @attributes="@(ItemWrapperStyle == null ? null : new Dictionary<string, object>() { { "style", ItemWrapperStyle(item) } })">
+
+            @{
+                if (ChildContent != null)
+                {
+                    @ChildContent(item);
+                }
+            }
+        </div>
+    }
+</div>
+
+

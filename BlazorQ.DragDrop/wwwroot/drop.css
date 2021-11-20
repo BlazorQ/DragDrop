@@ -1,0 +1,74 @@
+﻿.blazorq-dropzone {
+    min-height: 50px;
+}
+
+.blazorq-dropzone-dragged-over {
+    border: 2px dashed blue !important;
+}
+
+.blazorq-dropzone-spacing {
+    height: 10px;
+}
+
+.blazorq-dropzone-spacing-dragged-over {
+    padding: 25px;
+    margin: 3px;
+    border: 2px dashed blue;
+    border-radius: 4px;
+}
+
+.blazorq-dropzone-item {
+
+}
+
+/*add this to avoid flickering*/
+.blazorq-dropzone-item-inprogess > * {
+    /*pointer-events: none;*/
+}
+
+.blazorq-dropzone-item-dragged-over {
+    opacity: 0.6;
+    animation: blinker 1s linear infinite;
+}
+
+    .blazorq-dropzone-item-dragged-over > div {
+        opacity: 0.6;
+        animation: blinker 1s linear infinite;
+    }
+
+.blazorq-dropzone-item-dragged-over-denied {
+    background-color: red;
+    opacity: 0.6;
+    animation: blinker 1s linear infinite;
+}
+
+.blazorq-dropzone-item-in-transit-move {
+    opacity: 0;
+}
+
+    .blazorq-dropzone-item-in-transit-move > div {
+        opacity: 0;
+    }
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+}
+
+.blazorq-dropzone-noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.blazorq-dropzone-item-selected {
+    /*border: 3px solid blue;*/
+}
