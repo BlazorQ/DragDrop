@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 
 namespace BlazorQ.DragDrop
 {
@@ -21,7 +20,7 @@ namespace BlazorQ.DragDrop
         /// </summary>
         public IList TargetCollection { get; set; }
 
-        
+
 
         /// <summary>
         /// Resets the service to initial state

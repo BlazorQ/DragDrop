@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <Version>1.0.1</Version>
+    <TargetFramework>net6.0</TargetFramework>
+	<ImplicitUsings>enable</ImplicitUsings>
+    <Version>1.0.2</Version>
     <PackageId>BlazorQ.DropZone</PackageId>
     <Authors>Giovanni Quarella</Authors>
     <Product>BlazorQ DropZone</Product>
@@ -20,8 +21,8 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.12" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.8" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
   </ItemGroup>
 

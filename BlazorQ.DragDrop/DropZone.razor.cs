@@ -1,10 +1,7 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 
 namespace BlazorQ.DragDrop
 {
@@ -260,9 +257,10 @@ namespace BlazorQ.DragDrop
 
         private string GetClassesForDraggable(TItem item)
         {
-            var classes = new List<string>();
-
-            classes.Add("blazorq-dropzone-item");
+            var classes = new List<string>
+            {
+                "blazorq-dropzone-item"
+            };
 
             if (ItemWrapperClass != null)
                 classes.Add(ItemWrapperClass(item));
@@ -298,9 +296,10 @@ namespace BlazorQ.DragDrop
         {
             Debug.WriteLine($"GetClassesForDropZone: IsDropAllowed = {IsDropAllowed()}");
 
-            var classes = new List<string>();
-
-            classes.Add("blazorq-dropzone");
+            var classes = new List<string>
+            {
+                "blazorq-dropzone"
+            };
 
             if (!string.IsNullOrEmpty(Class))
                 classes.Add(Class);
@@ -317,9 +316,10 @@ namespace BlazorQ.DragDrop
 
             var acceptedItem = IsReordering() ? (TItem)DragDropService.Source : IsItemAccepted(DragDropService.Target);
 
-            var classes = new List<string>();
-
-            classes.Add("blazorq-dropzone-spacing");
+            var classes = new List<string>
+            {
+                "blazorq-dropzone-spacing"
+            };
 
             if (DragDropService.Target == null && ActiveSpacerIndex == spacerId)
             {
